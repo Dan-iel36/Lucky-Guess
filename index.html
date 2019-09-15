@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="pcss.css">
+	<meta charset="utf-8">
+	
+</head>
+<body>
+	<header>
+		<title>
+		Guess
+		</title>
+		<p>Pensez à actualiser la page à chaque partie</p>
+		<p class="pop">Think of a number from 1 to 100</p>
+	</header>
+
+		<strong>
+		<em><h1>
+		Lucky Guess
+		</h1></em>
+		</strong>
+
+	<form name="addInfo" id="addInfo">
+		<section class="Does" id="does" > Does luck exist
+			<input id="input" class="guess" name="guess" type="text" placeholder="how hard can you guess" required />
+		</section>
+
+		<section class="submission">
+			<input type="submit" name="submit">
+
+		<h2>Si après trois fois tu ne peux pas faire!!! 
+			<br>s'arrete pas parce que it is FUN.</h2>
+
+		
+		</section>
+	</form>
+	<div id="answer"></div>
+
+	<script type="text/javascript">
+		let numberToFind = Math.floor(Math.random() * 100) + 1 ;
+		var input = document.getElementById("addInfo");
+		let rep = document.getElementById("answer");
+		let numberOfTries = 1; 
+
+		document.addEventListener("submit", function(event) {
+		event.preventDefault();
+		let userInput = document.getElementById("input").value;
+
+		if (userInput == numberToFind) {
+			rep.innerHTML = "<p> Bravo, vous avez trouvé en " + numberOfTries + " essais</p>";
+
+		} else if (userInput < numberToFind) {
+			writeOnPage('C\'est plus')
+			numberOfTries++;
+
+		} else {
+			writeOnPage('C\est moins')
+			numberOfTries++;
+		};
+		});
+
+		function writeOnPage(string) {
+			rep.innerHTML = "<p>" + string + "</p>";
+		}
+
+    
+
+
+
+	</script>
+</body>
